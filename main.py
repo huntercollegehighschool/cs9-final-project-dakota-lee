@@ -24,8 +24,13 @@ while usedChances < 16:
     
   letterGuess = input("Guess a letter: ")
   letterGuess = letterGuess.lower()
-
-  if letterGuess in usedLetters:
+  temp2 = ''.join(word)
+  
+  if letterGuess == temp2:
+    print("You got the word! It was",''.join(word)+"!")
+    exit()
+    
+  elif letterGuess in usedLetters:
     print("You already guessed that!")
     
   elif letterGuess not in word:
@@ -39,7 +44,6 @@ while usedChances < 16:
   elif letterGuess in word:
     print(letterGuess,"is in the word.")
     temp = []
-    temp2 = ''.join(word)
     displayWord = ''.join(displayWord)
     for i in range(len(temp2)):
       if temp2[i] == letterGuess:
@@ -48,6 +52,6 @@ while usedChances < 16:
       displayWord = displayWord[:i] + letterGuess + displayWord[i+1:] 
     print("So far, you have guessed:", ''.join(displayWord))
     usedLetters.append(letterGuess)
-  
+    
 print("Aw. The word was",''.join(word)+".")
 exit()
