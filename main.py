@@ -1,11 +1,53 @@
 """
-Name(s):
-Name of Project:
+Name(s): Dakota Lee, Vennela Talapaneni
+Name of Project: Hangman
 """
+#i found the wordlist online somewhere and i forgot the link. so thats that i suppose
 
-#Write the main part of your program here. Use of the other pages is optional.
+import random
+file = open('words.txt','r')
+text = file.read()
+wordList = text.splitlines()
 
-#import page1  # uncomment if you're using page1
-#import page2  # uncomment if you're using page2
-#import page3  # uncomment if you're using page3
-#import page4  # uncomment if you're using page4
+word = random.choice(wordList)
+word = list(char for char in word)
+
+usedChances = 0
+usedLetters = []
+
+displayWord = list(len(word)*"_")
+
+while usedChances < 16:
+  if set(usedLetters).issuperset(word) == True:
+    print("You got the word! It was",''.join(word)+"!")
+    exit()
+    
+  letterGuess = input("Guess a letter: ")
+  letterGuess = letterGuess.lower()
+
+  if letterGuess in usedLetters:
+    print("You already guessed that!")
+    
+  elif letterGuess not in word:
+    print(letterGuess,"is not in the word.")
+    usedChances += 1
+    print("So far, you have guessed:", ''.join(displayWord)) 
+    usedLetters.append(letterGuess)
+    print("You have guessed letters:", ', '.join(usedLetters))
+    print("You have",str(16-usedChances),"chance(s) left.")
+    
+  elif letterGuess in word:
+    print(letterGuess,"is in the word.")
+    temp = []
+    temp2 = ''.join(word)
+    displayWord = ''.join(displayWord)
+    for i in range(len(temp2)):
+      if temp2[i] == letterGuess:
+        temp.append(i)
+    for i in temp:
+      displayWord = displayWord[:i] + letterGuess + displayWord[i+1:] 
+    print("So far, you have guessed:", ''.join(displayWord))
+    usedLetters.append(letterGuess)
+  
+print("Aw. The word was",''.join(word)+".")
+exit()
