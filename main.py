@@ -53,6 +53,7 @@ while usedChances < 16:
       displayWord = displayWord[:i] + letterGuess + displayWord[i+1:] 
     print("So far, you have guessed:", ''.join(displayWord))
     print("You have guessed letters/words:", ', '.join(usedLetters))
+    print("You still have",str(16-usedChances),"chance(s) left.")
     usedLetters.append(letterGuess)
     
 print("Aw. The word was",''.join(word)+".")
