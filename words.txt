@@ -847,3 +847,10 @@ yes
 yesterday
 you
 young
+candy
+lollipop
+popsicle
+summer
+spring
+parasol
+literature
