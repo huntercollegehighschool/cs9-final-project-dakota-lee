@@ -5,6 +5,7 @@ Name of Project: Hangman
 #i found the wordlist online somewhere and i forgot the link. so thats that i suppose
 
 import random
+
 file = open('words.txt','r')
 text = file.read()
 wordList = text.splitlines()
@@ -22,7 +23,7 @@ while usedChances < 16:
     print("You got the word! It was",''.join(word)+"!")
     exit()
     
-  letterGuess = input("Guess a letter: ")
+  letterGuess = input("Guess a letter/word: ")
   letterGuess = letterGuess.lower()
   temp2 = ''.join(word)
   
