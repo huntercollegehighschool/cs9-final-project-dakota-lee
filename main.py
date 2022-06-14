@@ -39,7 +39,7 @@ while usedChances < 16:
     usedChances += 1
     print("So far, you have guessed:", ''.join(displayWord)) 
     usedLetters.append(letterGuess)
-    print("You have guessed letters:", ', '.join(usedLetters))
+    print("You have guessed letters/words:", ', '.join(usedLetters))
     print("You have",str(16-usedChances),"chance(s) left.")
     
   elif letterGuess in word:
@@ -52,6 +52,7 @@ while usedChances < 16:
     for i in temp:
       displayWord = displayWord[:i] + letterGuess + displayWord[i+1:] 
     print("So far, you have guessed:", ''.join(displayWord))
+    print("You have guessed letters/words:", ', '.join(usedLetters))
     usedLetters.append(letterGuess)
     
 print("Aw. The word was",''.join(word)+".")
