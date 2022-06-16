@@ -42,6 +42,7 @@ while usedChances < 16:
     usedChances += 1
     print("So far, you have guessed:", ''.join(displayWord)) 
     usedLetters.append(letterGuess)
+    usedLetters.sort()
     print("So far, you have guessed letters/words:", ', '.join(usedLetters))
     print("You have",str(16-usedChances),"chance(s) left.")
     
@@ -56,6 +57,7 @@ while usedChances < 16:
       displayWord = displayWord[:i] + letterGuess + displayWord[i+1:] 
     print("So far, you have guessed:", ''.join(displayWord))
     usedLetters.append(letterGuess)
+    usedLetters.sort()
     print("So far, you have guessed letters/words:", ', '.join(usedLetters))
     print("You still have",str(16-usedChances),"chance(s) left.")
     
