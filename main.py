@@ -33,6 +33,9 @@ while usedChances < 16:
     
   elif letterGuess in usedLetters:
     print("You already guessed that!")
+    print("So far, you have guessed:", ''.join(displayWord))
+    print("So far, you have guessed letters/words:", ', '.join(usedLetters))
+    print("You still have",str(16-usedChances),"chance(s) left.")
     
   elif letterGuess not in word:
     print(letterGuess,"is not in the word.")
@@ -53,8 +56,8 @@ while usedChances < 16:
       displayWord = displayWord[:i] + letterGuess + displayWord[i+1:] 
     print("So far, you have guessed:", ''.join(displayWord))
     print("So far, you have guessed letters/words:", ', '.join(usedLetters))
-    print("You still have",str(16-usedChances),"chance(s) left.")
     usedLetters.append(letterGuess)
+    print("You still have",str(16-usedChances),"chance(s) left.")
     
 print("Aw. The word was",''.join(word)+".")
 exit()
